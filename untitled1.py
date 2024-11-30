@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np 
 from multiprocessing import Pool
-size = 100
+size = 1000
 center_point = 0 + 0j
 number_of_iteration = 100
 splitting = 2/size
@@ -36,14 +36,11 @@ if __name__ == "__main__":
     with Pool() as pool:
         result = pool.map(Julia_task, temp_Complex_matrix)
     result = np.array(result).reshape(2*size + 1, 2*size + 1)
-
-    # Визуализация
     plt.figure(figsize=(60, 60))
     plt.imshow(result,cmap = "inferno")
     cbr = plt.colorbar()
-    
-    plt.savefig("high_quality_image_multiproccesing3.png", dpi=500)
-    plt.savefig("high_quality_image_multiproccesing3.pdf", dpi=500)
-    plt.savefig("high_quality_image_multiproccesing3.jpeg", dpi=500)
+    plt.savefig("high_quality_image_multiproccesing.png", dpi=500)
+    plt.savefig("high_quality_image_multiproccesing.pdf", dpi=500)
+    plt.savefig("high_quality_image_multiproccesing.jpeg", dpi=500)
 
 
